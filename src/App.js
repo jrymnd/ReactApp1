@@ -1,25 +1,44 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function MyButton() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <button>
+          I'm a button 
+      </button>
   );
 }
 
-export default App;
+function Header() {
+  const user = {
+    firstName: 'Jesse',
+    lastName: 'Garcia',
+    imageUrl: "https://res.cloudinary.com/taskrabbit-com/image/upload/c_fill,g_faces,h_108,w_108/v1655843426/m3nb34ytqkhmbrkyrsgq.jpg",
+    imageSize: 90,
+  } 
+
+  return (
+    <section className="headerSection">
+      <img
+        className='avatar'
+        src={user.imageUrl}
+        alt={'Photo of' + user.name}
+        style={{
+          width: user.imageSize,
+          height: user.imageSize
+        }}
+        />
+      <h1>{'Welcome to ' + user.firstName + `'s App!`}</h1>
+    </section>
+  );
+}
+
+
+export default function MyApp() {
+  return (
+    <div>
+      <Header />
+      <MyButton />
+    </div>
+  );
+}
