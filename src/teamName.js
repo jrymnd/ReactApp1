@@ -1,4 +1,4 @@
-import TeamList from "./components/TeamList"
+import TeamList from "./components/lists/TeamList"
 
 export const teamInfo = [
     {
