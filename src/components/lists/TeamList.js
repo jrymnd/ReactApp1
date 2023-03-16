@@ -30,16 +30,7 @@ const listPlayers = players.map(player =>
         <br />
         {player.male ? 'Male' : 'Female'}
         <br />
-        <Button color="secondary" outline 
-        
-        
-        
-        onClick={() => onClick({player})}>Add to lineup</Button>
-
-
-
-
-        
+        <Button color="secondary" outline  onClick={() => onClick({player})}>Add to lineup</Button>
         <br />
         <br />
     </li>
@@ -51,8 +42,6 @@ function onClick({player}){
     const battingList = blist.concat(player)
 
     setBlist(battingList)
-    alert(player.name);
-    // alert(blist);
 };
 
 
