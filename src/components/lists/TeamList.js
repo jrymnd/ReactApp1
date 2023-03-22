@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
 import { Button, Col, Container, Row, Card, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 import { players } from "../../playersList";
-import { teamInfo } from "../../teamName";
 
 
 export default function TeamList() {

@@ -1,4 +1,3 @@
-import { players } from "../../playersList";
 import { teamInfo } from "../../teamName";
 
 export default function TeamHeader() {

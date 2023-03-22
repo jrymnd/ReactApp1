@@ -1,4 +1,3 @@
-
 import './App.css';
 import TeamList from './components/lists/TeamList';
 import TeamHeader from './components/headers/TeamHeader';
