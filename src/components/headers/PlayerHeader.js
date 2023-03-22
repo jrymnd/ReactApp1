@@ -1,6 +1,6 @@
 import { players } from "../../playersList";
 
-export default function Header() {
+export default function Header(player) {
     const user = {
       firstName: 'Jesse',
       lastName: 'Garcia',
@@ -12,11 +12,11 @@ export default function Header() {
       <section className="headerSection">
         <img
           className='avatar'
-          src={user.imageUrl}
-          alt={'Photo of' + user.name}
+          src={player.imageUrl}
+          alt={'Photo of' + player.name}
           style={{
-            width: user.imageSize,
-            height: user.imageSize
+            width: player.imageSize,
+            height: player.imageSize
           }}
           />
         <h1>{'Welcome to ' + user.firstName + `'s App!`}</h1>
