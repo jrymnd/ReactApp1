@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
 import { Button, Col, Container, Row, Card, CardBody, CardTitle, CardSubtitle } from 'reactstrap';
 import { players } from "../../playersList";
+import { teamInfo } from "../../teamName";
 
 
 export default function TeamList() {
@@ -23,25 +24,23 @@ const lineUp = blist.map(player =>
 
 
 const listPlayers = players.map(player => 
-    <Card style={{
-        width: '9rem'
-    }}>
-        <img
+<div classname="grid-item" key={player.name}>
+        {/* <img
           className='avatar'
           src={player.imageUrl}
           alt={'Photo of ' + player.name}
-          />
-    <CardBody>
-    <CardTitle>{player.name}</CardTitle>
+          /> */}
 
-    <CardSubtitle>{player.position}
+        {player.name}
+        <br />
+        {player.position}
         <br />
         {player.male ? 'Male' : 'Female'}
-    </CardSubtitle>
+
     <br />
         <Button color="secondary" outline  onClick={() => onClick({player})}>Add to lineup</Button>
-        </CardBody>
-    </Card>
+
+        </div>
 );
 
 const sortedLineup = sortedBlist.map(player => 
@@ -97,32 +96,25 @@ function onButtonClick({blist}){
 
 
 return (
-    <Container>
-    <div className="textCenter">
-        <Row>
-            <Col>
+
+    <div>
+
     <h1>Players</h1>
-    <Container>
-    <ul>{listPlayers}</ul>
-    </Container>
-    </Col>
-<Col>
+
+    <div className="textCenter grid-container">{listPlayers}</div>
+
+
 <h1>Players Present</h1>
     <ul>{lineUp}</ul>
     <Button className='buttonCenter' onClick={() => onButtonClick({blist})}>
                 Create Lineup
     </Button>
-    </Col>
-    <Col>
+
     <h1>Line Up</h1>
     <ul>{sortedLineup}</ul>
-    </Col>
-    </Row>
-    <Row>
-        <h1>Hello</h1>
-    </Row>
+
+
     </div>
 
-    </Container>
 );
 }
