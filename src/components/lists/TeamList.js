@@ -13,25 +13,39 @@ const [sortedBlist, setSortedBlist] = useState([])
 
 
 const lineUp = blist.map(player => 
-    <li key={player.name}>
+    <div classname="grid-item" key={player.name}>
         Name: {player.name}
+        <br />
+        <img
+          className='avatar'
+          src={player.imageUrl}
+          alt={'Photo of ' + player.name}
+          style={{
+          width: player.imageSize,
+          height: player.imageSize
+        }}
+          />
         <br />
         Postion: {player.position}
         <br />
         <br />
-    </li>
+    </div>
     );
 
 
 const listPlayers = players.map(player => 
 <div classname="grid-item" key={player.name}>
-        {/* <img
+        Name: {player.name}
+        <br />
+        <img
           className='avatar'
           src={player.imageUrl}
           alt={'Photo of ' + player.name}
-          /> */}
-
-        {player.name}
+          style={{
+          width: player.imageSize,
+          height: player.imageSize
+        }}
+          />
         <br />
         {player.position}
         <br />
@@ -44,20 +58,23 @@ const listPlayers = players.map(player =>
 );
 
 const sortedLineup = sortedBlist.map(player => 
-    <li key={player.name}>
+    <div classname="grid-item" key={player.name}>
             <img
           className='avatar'
           src={player.imageUrl}
           alt={'Photo of' + player.name}
+          style={{
+            width: player.imageSize,
+            height: player.imageSize
+          }}
           />
-    Name: {player.name}
+    {player.name}
     <br/>
-    Postion: {player.position}
+    {player.position}
     <br />
     {player.male ? 'Male' : 'Female'}
     <br />
-    <br />
-</li>
+</div>
 );
 
 
@@ -77,7 +94,8 @@ function onButtonClick({blist}){
     const boygirl = males.reduce((acc, curr, index) => {
         if (index < females.length) {
         return[...acc,curr,females[index]];
-    } else {
+    } 
+    else {
         return[...acc,curr];
     }
     },[]);
@@ -87,8 +105,6 @@ function onButtonClick({blist}){
 
     setSortedBlist(genderSortedBlist)
 
-    alert(`${females.length} & ${males.length}`)
-
     };
 
 
@@ -97,23 +113,30 @@ function onButtonClick({blist}){
 
 return (
 
-    <div>
-
+    <div className="textCenter">
     <h1>Players</h1>
-
+    <br />
     <div className="textCenter grid-container">{listPlayers}</div>
-
-
+    <br />
+    <br />
+    <br />
+    <br />
 <h1>Players Present</h1>
-    <ul>{lineUp}</ul>
+    <div className="textCenter grid-container">{lineUp}</div>
     <Button className='buttonCenter' onClick={() => onButtonClick({blist})}>
-                Create Lineup
+        Create Lineup
     </Button>
-
+    <br />
+    <br />
+    <br />
+    <br />
     <h1>Line Up</h1>
-    <ul>{sortedLineup}</ul>
-
-
+    <br />
+    <div className="textCenter grid-container">{sortedLineup}</div>
+    <br />
+    <br />
+    <br />
+    <br />
     </div>
 
 );
